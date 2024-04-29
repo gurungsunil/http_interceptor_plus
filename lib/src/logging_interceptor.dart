@@ -30,7 +30,7 @@ class LoggingMiddleware implements http.Client {
 
       // Log GET response details
       String responseLog =
-          '✅ 🌐 GET Response 🌐 ✅\n🔗 URL: $url\n🔒 Status Code: ${response.statusCode}\n📋 Headers:\n${response.headers.entries.map((entry) => '  • ${entry.key}: ${entry.value}').join('\n')}\n📥 Response Data: ${jsonDecode(jsonDecode(response.body))}';
+          '✅ 🌐 GET Response 🌐 ✅\n🔗 URL: $url\n🔒 Status Code: ${response.statusCode}\n📋 Headers:\n${response.headers.entries.map((entry) => '  • ${entry.key}: ${entry.value}').join('\n')}\n📥 Response Data: ${jsonDecode(response.body)}';
       _logger.i(responseLog);
 
       return response;

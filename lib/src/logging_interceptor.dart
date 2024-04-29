@@ -1,12 +1,17 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'dart:io' as io;
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
 /// A custom HTTP client with logging capabilities.
 class LoggingMiddleware implements http.Client {
   final http.Client _inner;
-  final Logger _logger = Logger();
+  final Logger _logger = Logger(
+    printer: PrettyPrinter(
+      lineLength: io.stdout.terminalColumns
+    )
+  );
 
   LoggingMiddleware(this._inner);
 
